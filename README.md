@@ -1,17 +1,18 @@
 <div align="center">
 
-<h2>🎮 Free Fun HTML Games</h2>
+<h2>
+🟥🟦🟩🟩🟦🟥<br>👑 🎮 FREE FUN HTML ARCADE GAMES 🎮 👑<br>🟩🟦🟥🟥🟦🟩
+</h2>
 
-<p>━━━━━━━━━━━━ ✦ ━━━━━━━━━━━━</p>   
+<p>░░░▒▒▓▓███ ✦ ███▓▓▒▒░░░</p>
 
-_All games are under testing & improvement 🔧✨_
+<p><i>All games are under testing & improvement 🔧✨</i></p>
 
-<p>━━━━━━━━━━━━ ✦ ━━━━━━━━━━━━</p>
+<p>░░░▒▒▓▓███ ✦ ███▓▓▒▒░░░</p>
 
 </div>
 
 ### ✨ What's Inside?
 
-- Fast, fun HTML games  
-- Cool experimental projects  
-
+- 🕹️ Retro-style HTML games  
+- 🎯 Experimental mini-projects  
