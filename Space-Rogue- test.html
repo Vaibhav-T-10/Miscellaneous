@@ -13,6 +13,23 @@
       --muted:#98a0b3;
       --glass: rgba(255,255,255,0.03);
     }
+
+    /* Correct dropdown styling */
+    select {
+      background: #06141c !important;
+      color: #e6eef8 !important;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    select option {
+      background: #0f1724;
+      color: #e6eef8;
+    }
+
+    select:focus {
+      outline: 1px solid var(--accent2);
+    }
+
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family: 'Courier New', Courier, monospace ;background:linear-gradient(180deg,var(--bg),#041020);color:#e6eef8}
     .wrap{display:grid;grid-template-columns:320px 1fr;gap:18px;padding:18px;height:100vh}
@@ -25,10 +42,20 @@
     .muted{color:var(--muted);font-size:13px}
     .row{display:flex;gap:8px;align-items:center}
     .stat{display:flex;flex-direction:column;padding:10px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);}
-    canvas{width:100%;height:100%;display:block;border-radius:12px;background:radial-gradient(ellipse at 20% 10%, rgba(77,208,225,0.02), transparent 10%), #02121a;}
+    canvas{width:100%;height:100%;display:block;border-radius:12px;background:radial-gradient(ellipse at 20% 10%, rgba(77,208,225,0.02), transparent 10%), #02121a; outline: 2px solid rgba(77,208,225,0.4); outline-offset:-1px;}
     .footer{font-size:12px;color:var(--muted);margin-top:6px}
     .keyboard{font-family:monospace;background:#06141c;padding:6px;border-radius:6px}
-    @media(max-width:900px){.wrap{grid-template-columns:1fr;grid-auto-rows:auto;padding:10px}.left{order:2}}
+
+    @media(max-width:900px){
+      .wrap{
+        grid-template-columns:1fr;
+        grid-auto-rows:auto;
+        padding:10px;
+      }
+      .left{
+        order:2;
+      }
+    }
   </style>
 </head>
 <body>
@@ -64,7 +91,7 @@
         <div class="row">
           <label class="muted">Ship</label>
           <select id="shipSelect" style="margin-left:auto;padding:6px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">
-            <option value="" selected>Falcon (Balanced)</option>
+            <option value="falcon" selected>Falcon (Balanced)</option>
             <option value="raptor">Raptor (Fast)</option>
             <option value="titan">Titan (Tank)</option>
           </select>
@@ -196,15 +223,15 @@
 
     // Game entities
     function createPlayer(){
-      const blueprint = ships[shipSel.value];
-      playerShip = {
-        x: W/2, y: H-120, vx:0, vy:0, rot:0,
-        speed:blueprint.speed, acc:blueprint.acc,
-        shotRate:blueprint.shotRate, shotTimer:0,
-        size:blueprint.size, hp:blueprint.hp, maxHp:blueprint.hp,
-        combo:0, comboTimer:0
-      };
-    }
+  const blueprint = ships[shipSel.value] || ships.falcon;
+  playerShip = {
+    x: W/2, y: H-120, vx:0, vy:0, rot:0,
+    speed:blueprint.speed, acc:blueprint.acc,
+    shotRate:blueprint.shotRate, shotTimer:0,
+    size:blueprint.size, hp:blueprint.hp, maxHp:blueprint.hp,
+    combo:0, comboTimer:0
+  };
+}
 
     function spawnEnemy(type){
       // enemy types: grunts, kamikaze, turret, bomber, boss
